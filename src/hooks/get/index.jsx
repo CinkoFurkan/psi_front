@@ -9,7 +9,7 @@ const useFetch = (url) => {
         const fetchData = async () => {
             setIncrementLoading()
             try {
-                const {data} = await axios.get(`/psinous_app/api/${url}`);
+                const {data} = await axios.get(`https://psi-back.onrender.com/psinous_app/api/${url}`);
                 setData(data);
             } catch (error) {
                 console.log(error.message);
