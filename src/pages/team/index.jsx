@@ -8,8 +8,8 @@ const Team = () => {
     const defaultYear = "2024-2025";
     const selectedYear = year ? year.substring(0, 4) : defaultYear.substring(0, 4);
 
-    const {data} = useFetch("/member");
-    const {data: teamsData} = useFetch("/team");
+    const {data} = useFetch("member");
+    const {data: teamsData} = useFetch("team");
 
     if (!data || !teamsData) {
         return null;

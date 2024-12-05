@@ -6,7 +6,7 @@ import Social from "./components/social";
 import useMedia from "../../../../hooks/use-media";
 
 const Header = () => {
-  const { data: links } = useFetch("/link/");
+  const { data: links } = useFetch("link/");
   const isMobile = useMedia();
 
   return (

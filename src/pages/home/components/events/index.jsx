@@ -5,7 +5,7 @@ import Image from "./components/image";
 import Info from "./components/info";
 
 const Events = () => {
-  const { data } = useFetch("/event");
+  const { data } = useFetch("event");
 
   const sortedData = data.event?.sort(
     (a, b) => new Date(b.event_date) - new Date(a.event_date)

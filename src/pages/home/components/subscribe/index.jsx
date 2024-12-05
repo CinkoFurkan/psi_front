@@ -4,7 +4,7 @@ import usePost from "../../../../hooks/post";
 import toast from "react-hot-toast";
 
 const Subscription = () => {
-  const { postData } = usePost("/email/");
+  const { postData } = usePost("email/");
   const [email, setEmail] = useState("");
 
   const postEmail = async (e) => {
