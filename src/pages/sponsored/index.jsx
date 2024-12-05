@@ -6,7 +6,7 @@ export default function Sponsored() {
 
     useEffect(() => {
         axios
-            .get("psinous_app/api/sponsor/")
+            .get("api/sponsor/")
             .then((response) => {
                 setSponsors(response.data.sponsors || []);
             })
