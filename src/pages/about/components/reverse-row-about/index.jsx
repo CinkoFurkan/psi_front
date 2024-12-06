@@ -16,7 +16,7 @@ export default function ReverseRowAbout({otherAboutSections}) {
                             <div className='order-1 w-5/12'>
                                 {section.image && (
                                     <img
-                                        src={section.image}
+                                        src={`https://psi-back.onrender.com${section.image}`}
                                         alt={section.title}
                                         className='w-full h-auto'
                                     />

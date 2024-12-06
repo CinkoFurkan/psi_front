@@ -6,14 +6,13 @@ export default function Card({ image, description, reverse, title }) {
     <div className="relative w-full h-full sm:h-full md:h-full p-2 border-4 border-gray-400 rounded-lg shadow-lg">
         <div className="relative w-full h-full rounded-lg overflow-hidden">
             <img
-                src={image}
+                src={`https://psi-back.onrender.com${image}`}
                 alt="Team member"
                 className="w-full h-full object-cover rounded-lg"
             />
         </div>
     </div>
 </div>
-            {/* Description Section */}
             <div className="w-full md:w-2/3 lg:w-1/2 px-5 flex flex-col items-center justify-center">
                 <h1 className="text-center text-2xl lg:text-3xl font-semibold mb-4 mt-6 text-gray-800">{title}</h1>
                 {description && (
@@ -22,7 +21,6 @@ export default function Card({ image, description, reverse, title }) {
                     </p>
                 )}
             </div>
-            {/* Image Section */}
         </div>
     );
 }

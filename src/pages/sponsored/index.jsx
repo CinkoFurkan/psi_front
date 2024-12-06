@@ -6,7 +6,7 @@ export default function Sponsored() {
 
     useEffect(() => {
         axios
-            .get("api/sponsor/")
+            .get("https://psi-back.onrender.com/psinous_app/api/sponsor/")
             .then((response) => {
                 setSponsors(response.data.sponsors || []);
             })
@@ -37,7 +37,7 @@ export default function Sponsored() {
                     >
                         {sponsor.image ? (
                             <img
-                                src={sponsor.image}
+                                src={`https://psi-back.onrender.com${sponsor.image}`}
                                 alt={`Sponsor ${sponsor.id} logo`}
                                 className="w-28 h-auto rounded-md"
                             />

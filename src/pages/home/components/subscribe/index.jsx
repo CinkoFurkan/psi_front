@@ -24,12 +24,10 @@ const Subscription = () => {
 
   return (
     <div className="flex flex-col items-center justify-center py-20 px-4 sm:px-8 lg:px-16 w-full">
-      {/* Heading */}
       <h1 className="mb-6 text-3xl font-bold text-center text-black sm:text-4xl">
         Bizden Haberdar Olun
       </h1>
 
-      {/* Form */}
       <form
         onSubmit={postEmail}
         className="flex flex-col items-center justify-center w-full space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4"

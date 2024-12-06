@@ -42,7 +42,7 @@ const Events = () => {
                 {isEventPast ? (
                   <Button
                     as="a"
-                    href={event.summary_link ? `http://localhost:8000${event.summary_link}` : "#"}
+                    href={event.summary_link ? `https://psinous.onrender.com${event.summary_link}` : "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="primary"
