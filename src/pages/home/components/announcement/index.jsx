@@ -51,7 +51,7 @@ const Announcement = () => {
                     <img
                       src={`https://psi-back.onrender.com${announcement.phone_image}`}
                       alt="Phone Announcement"
-                      className="object-cover w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] rounded-2xl transition-transform duration-500"
+                      className="object-cover w-full h-[400px] sm:h-[500px] md:h-auto rounded-2xl transition-transform duration-500"
                     />
                   </div>
                 ) : announcement.image && announcement.link ? (
@@ -64,11 +64,7 @@ const Announcement = () => {
                     <img
                       src={`https://psi-back.onrender.com${announcement.image}`}
                       alt="Announcement"
-                      className={`object-cover ${
-                        isSmallScreen
-                          ? "w-[300px] h-[300px]"
-                          : "w-full h-[400px] sm:h-[500px] md:h-[450px]"
-                      } rounded-2xl`}
+                      className="object-cover w-full h-[400px] sm:h-[500px] md:h-[450px] rounded-2xl"
                     />
                   </a>
                 ) : announcement.image ? (
@@ -76,11 +72,7 @@ const Announcement = () => {
                     <img
                       src={`https://psi-back.onrender.com${announcement.image}`}
                       alt="Announcement"
-                      className={`object-cover ${
-                        isSmallScreen
-                          ? "w-[300px] h-[300px]"
-                          : "w-full h-[400px] sm:h-[500px] md:h-[450px]"
-                      } rounded-2xl transition-transform duration-500`}
+                      className="object-cover w-full h-[400px] sm:h-[500px] md:h-[450px] rounded-2xl transition-transform duration-500"
                     />
                   </div>
                 ) : null}
