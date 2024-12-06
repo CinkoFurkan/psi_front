@@ -15,10 +15,6 @@ const Info = ({ event }) => {
         {event.title}
       </h2>
 
-      <p className="flex-grow h-16 overflow-hidden text-sm text-gray-700 line-clamp-3 sm:text-xs">
-        {event.description}
-      </p>
-
       <div className="flex flex-col items-center space-y-1 text-sm text-gray-500 text-center">
         <p>📍 {event.location}</p>
         <p>📅 {date}</p>
