@@ -30,7 +30,7 @@ const Events = () => {
               <div className="flex flex-col items-center w-full p-4 sm:p-6 space-y-4">
                 <Info event={event} />
 
-                {isEventPast ? (
+                {isPastEvent ? (
                   <Button
                     as="a"
                     href={`https://psi-back.onrender.com${event.summary_link}`}
