@@ -30,10 +30,10 @@ const Events = () => {
               <div className="flex flex-col items-center w-full p-4 sm:p-6 space-y-4">
                 <Info event={event} />
 
-                {isPastEvent ? (
+                {isEventPast ? (
                   <Button
                     as="a"
-                    href={event.summary_link ? `http://localhost:8000${event.summary_link}` : "#"}
+                    href={`https://psi-back.onrender.com${event.summary_link}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="primary"
@@ -51,7 +51,6 @@ const Events = () => {
                     size="normal"
                   >
                     {event.registration_link ? "Kayıt ol" : "Kayıt Ol"}
-
                   </Button>
                 )}
               </div>

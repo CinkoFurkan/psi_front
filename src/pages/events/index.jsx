@@ -42,7 +42,7 @@ const Events = () => {
                 {isEventPast ? (
                   <Button
                     as="a"
-                    href={`https://psinous.onrender.com${event.summary_link}`}
+                    href={`https://psi-back.onrender.com${event.summary_link}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="primary"
