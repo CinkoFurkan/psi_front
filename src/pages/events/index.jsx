@@ -11,7 +11,6 @@ const Events = () => {
     (a, b) => new Date(b.event_date) - new Date(a.event_date)
   );
 
-  // Mevcut tarihi alıyoruz
   const currentDate = new Date();
 
   return data && data.event ? (
@@ -41,7 +40,7 @@ const Events = () => {
                     as="a"
                     href={
                       event.summary_link
-                        ? `https://psinous.onrender.com${event.summary_link.replace(
+                        ? `https://psi-back.onrender.com${event.summary_link.replace(
                             "http://localhost:8000",
                             ""
                           )}`
