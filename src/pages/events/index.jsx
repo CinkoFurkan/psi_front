@@ -41,7 +41,10 @@ const Events = () => {
                     as="a"
                     href={
                       event.summary_link
-                        ? `https://psinous.onrender.com${event.summary_link}`
+                        ? `https://psinous.onrender.com${event.summary_link.replace(
+                            "http://localhost:8000",
+                            ""
+                          )}`
                         : "#"
                     }
                     target="_blank"
