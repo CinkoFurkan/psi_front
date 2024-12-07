@@ -7,9 +7,9 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { useMediaQuery } from "react-responsive";
 
 const Announcement = () => {
-  const { data, error } = useFetch("announcement");
+  const { data, error } = useFetch("/announcement");
 
-  const isSmallScreen = useMediaQuery({ query: "(max-width: 1280px)" });
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 1024px)" });
 
   useEffect(() => {
     if (data) {
@@ -49,7 +49,7 @@ const Announcement = () => {
                 {isSmallScreen && announcement.phone_image ? (
                   <div className="flex justify-center items-center w-full rounded-2xl overflow-hidden shadow-md">
                     <img
-                      src={`https://psi-back.onrender.com${announcement.phone_image}`}
+                      src={announcement.phone_image}
                       alt="Phone Announcement"
                       className="object-cover w-full h-[400px] sm:h-[500px] md:h-auto rounded-2xl transition-transform duration-500"
                     />
@@ -62,7 +62,7 @@ const Announcement = () => {
                     className="flex justify-center items-center w-4/5 rounded-2xl overflow-hidden shadow-md transition-transform duration-500 hover:scale-105"
                   >
                     <img
-                      src={`https://psi-back.onrender.com${announcement.image}`}
+                      src={announcement.image}
                       alt="Announcement"
                       className="object-cover w-full h-[400px] sm:h-[500px] md:h-[450px] rounded-2xl"
                     />
@@ -70,7 +70,7 @@ const Announcement = () => {
                 ) : announcement.image ? (
                   <div className="flex justify-center items-center w-4/5 rounded-2xl overflow-hidden shadow-md">
                     <img
-                      src={`https://psi-back.onrender.com${announcement.image}`}
+                      src={announcement.image}
                       alt="Announcement"
                       className="object-cover w-full h-[400px] sm:h-[500px] md:h-[450px] rounded-2xl transition-transform duration-500"
                     />
