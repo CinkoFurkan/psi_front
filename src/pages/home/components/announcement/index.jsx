@@ -7,7 +7,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { useMediaQuery } from "react-responsive";
 
 const Announcement = () => {
-  const { data, error } = useFetch("/announcement");
+  const { data, error } = useFetch("announcement");
 
   const isSmallScreen = useMediaQuery({ query: "(max-width: 1024px)" });
 
