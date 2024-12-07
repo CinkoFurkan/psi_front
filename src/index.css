@@ -10,7 +10,7 @@ html, body {
 
 .flip-card {
     background-color: transparent;
-    width: 300px; 
+    width: 350px; 
     height: 400px; 
     border: 1px solid #F1F1F1;
     perspective: 1000px; 
