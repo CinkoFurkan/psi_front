@@ -9,7 +9,7 @@ import { useMediaQuery } from "react-responsive";
 const Announcement = () => {
   const { data, error } = useFetch("announcement");
 
-  const isSmallScreen = useMediaQuery({ query: "(max-width: 1024px)" });
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 1081px)" });
 
   useEffect(() => {
     if (data) {
