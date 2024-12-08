@@ -3,7 +3,6 @@ import useMedia from "../../../../../../hooks/use-media";
 import ResponsiveLinks from "../responsive-links";
 
 const Links = ({ links }) => {
-  // Tailwind's `lg` breakpoint corresponds to 1024px.
   const isSmallerThanLg = useMedia(1024);
 
   if (isSmallerThanLg) {

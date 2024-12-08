@@ -1,5 +1,6 @@
 import { FaInstagram } from 'react-icons/fa';
 import { FaLinkedin } from "react-icons/fa6";
+import { FaSpotify } from "react-icons/fa";
 
 const Social = () => {
   return (
@@ -8,7 +9,7 @@ const Social = () => {
         href="https://www.instagram.com/psinouss?igsh=M2J3bG95czFhdWVy"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-[#bc090b] transition duration-200"
+        className="hover:text-[#E4405F] transition duration-200"
       >
         <FaInstagram size={24} />
       </a>
@@ -16,9 +17,17 @@ const Social = () => {
         href="https://www.linkedin.com/company/psinous/"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-[#0b65c2] transition duration-200"
+        className="hover:text-[#0077B5] transition duration-200"
       >
         <FaLinkedin size={24} />
+      </a>
+      <a
+        href="https://open.spotify.com/user/3126njltvzlkng7sbchrx4hc7hei?si=9Xfi6zjqQdiodfD_Ce5FiQ"  
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-[#1DB954] transition duration-200"  
+      >
+        <FaSpotify size={24} />
       </a>
     </div>
   );
