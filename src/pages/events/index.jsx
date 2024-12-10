@@ -6,6 +6,7 @@ import {motion} from "framer-motion";
 
 const Events = () => {
     const {data} = useFetch('event');
+    console.log(data);
 
     const sortedEvents = data.event?.sort(
         (a, b) => new Date(b.event_date) - new Date(a.event_date)
