@@ -3,7 +3,7 @@ const Info = ({ event }) => {
     const date = new Date(dateString);
     return {
       date: date.toLocaleDateString(),
-      time: date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      time: date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
   };
 
@@ -13,19 +13,31 @@ const Info = ({ event }) => {
     : null;
 
   return (
-    <>
-      <h2 className="text-2xl font-semibold text-black break-words">{event.title}</h2>
+    <div className="flex flex-col items-center justify-between h-full">
+      <h2 className="text-2xl font-semibold text-black text-center break-words">
+        {event.title}
+      </h2>
 
-      <div className="flex flex-col items-center space-y-1 text-sm text-gray-500">
+      <div className="flex flex-col items-center space-y-1 text-sm text-gray-500 mt-4">
         <p>📍 {event.location}</p>
-        <p>
-          📅 {startDateInfo.date} - {finishDateInfo?.date || "Ongoing"}
-        </p>
-        <p>
-          ⏰ {startDateInfo.time} - {finishDateInfo?.time || "TBD"}
-        </p>
+
+        {finishDateInfo ? (
+          <p>
+            🗓️ {startDateInfo.date} - {finishDateInfo.date}
+          </p>
+        ) : (
+          <p>🗓️ {startDateInfo.date}</p>
+        )}
+
+        {finishDateInfo ? (
+          <p>
+            ⏰ {startDateInfo.time} - {finishDateInfo.time}
+          </p>
+        ) : (
+          <p>⏰ {startDateInfo.time}</p>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 

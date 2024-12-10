@@ -7,20 +7,37 @@ const Info = ({ event }) => {
     };
   };
 
-  const { date, time } = formatDate(event.event_date);
+  const startDateInfo = formatDate(event.event_date);
+  const finishDateInfo = event.event_finish_date
+    ? formatDate(event.event_finish_date)
+    : null;
 
   return (
-    <>
-      <h2 className="text-2xl font-semibold text-gray-900 line-clamp-1 text-center sm:text-xl">
+    <div className="flex flex-col items-center justify-between h-full">
+      <h2 className="text-2xl font-semibold text-black text-center break-words">
         {event.title}
       </h2>
 
-      <div className="flex flex-col items-center space-y-1 text-sm text-gray-500 text-center">
+      <div className="flex flex-col items-center space-y-1 text-sm text-gray-500 mt-4">
         <p>📍 {event.location}</p>
-        <p>📅 {date}</p>
-        <p>⏰ {time}</p>
+
+        {finishDateInfo ? (
+          <p>
+            🗓️ {startDateInfo.date} - {finishDateInfo.date}
+          </p>
+        ) : (
+          <p>🗓️ {startDateInfo.date}</p>
+        )}
+
+        {finishDateInfo ? (
+          <p>
+            ⏰ {startDateInfo.time} - {finishDateInfo.time}
+          </p>
+        ) : (
+          <p>⏰ {startDateInfo.time}</p>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 
