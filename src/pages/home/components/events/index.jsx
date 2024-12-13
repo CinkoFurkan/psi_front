@@ -28,7 +28,7 @@ const Events = () => {
       </h1>
 
       <div
-        className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center"
+        className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 place-items-center"
       >
         {lastThreeEvents.map((event, index) => {
           const isEventPast = new Date(event.event_date) < currentDate;
@@ -44,7 +44,7 @@ const Events = () => {
                 {isEventPast ? (
                   <Button
                     as="a"
-                    href={`https://psi-back.onrender.com${event.summary_link}`}
+                    href={`https://psi-back.onrender.com${event.summary_link}` || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="primary"

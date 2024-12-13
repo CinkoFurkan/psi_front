@@ -1,6 +1,17 @@
-export default function BlogWriter({data}) {
+import { useNavigate } from "react-router-dom";
+
+export default function BlogWriter({ data }) {
+    const navigate = useNavigate();
+
+    const handleMemberClick = (id) => {
+        navigate(`/member/${id}`);
+    };
+
     return (
-        <div className="flex flex-col items-center text-gray-600">
+        <div
+            className="flex flex-col items-center text-gray-600 cursor-pointer"
+            onClick={() => handleMemberClick(data.blogs?.writer_id)}
+        >
             <div className="flex items-center space-x-3 mb-2">
                 <img
                     src={`https://psi-back.onrender.com${data.blogs?.writer_image}`}
@@ -17,5 +28,5 @@ export default function BlogWriter({data}) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

@@ -15,7 +15,7 @@ export default function BlogDetails() {
 
     const {id: blogID} = useParams();
     const {data} = useFetch(`blog/${blogID}`);
-
+    
     const incremenetLikes = async (id, newLike, newViews) => {
         await increaceLikesAPI(id, newLike, newViews);
     };
