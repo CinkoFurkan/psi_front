@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 
 const Events = () => {
   const { data } = useFetch('event');
-  console.log(data);
 
   const sortedEvents = data.event?.sort(
     (a, b) => new Date(b.event_date) - new Date(a.event_date)
@@ -21,10 +20,6 @@ const Events = () => {
       animate={{ opacity: 1 }}
       className="min-h-screen px-4 py-10 sm:px-8 lg:px-16"
     >
-      <h1 className="mb-8 text-2xl font-bold text-center text-gray-900 md:text-3xl lg:text-4xl">
-        Etkinlikler
-      </h1>
-
       <div
         className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center"
       >
