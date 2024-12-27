@@ -3,7 +3,7 @@ export default function Image({image}) {
         <div className="flex justify-center mb-4">
             {image ? (
                 <img
-                    src={`https://psi-back.onrender.com${image}`}
+                    src={image}
 
                     className="w-64 h-64 border-4 border-white rounded-full shadow-xl"
                 />
