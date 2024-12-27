@@ -37,7 +37,7 @@ export default function Sponsored() {
                     >
                         {sponsor.image ? (
                             <img
-                                src={`https://psi-back.onrender.com${sponsor.image}`}
+                                src={sponsor.image}
                                 alt={`Sponsor ${sponsor.id} logo`}
                                 className="w-28 h-auto rounded-md"
                             />

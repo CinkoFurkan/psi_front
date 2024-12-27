@@ -14,7 +14,7 @@ export default function TopAbout({ aboutSections }) {
                 </p>
                 {aboutSections[1]?.image && (
                     <img
-                        src={`https://psi-back.onrender.com${aboutSections[1]?.image}`}
+                        src={aboutSections[1]?.image}
                         alt='About'
                         className='w-full sm:w-3/4 h-[250px] sm:h-[410px] mx-auto mt-10 object-cover'
                     />

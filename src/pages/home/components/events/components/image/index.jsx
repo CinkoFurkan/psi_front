@@ -1,7 +1,7 @@
 const Image = ({ event }) => {
   return (
     <img
-      src={`https://psi-back.onrender.com${event.image}`}
+      src={event.image}
       alt="Event"
       className="object-cover w-full h-auto"
     />

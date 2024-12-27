@@ -20,7 +20,7 @@ const About = () => {
                         </p>
                         <div className="flex justify-center mb-8">
                             <img
-                                src={`https://psi-back.onrender.com${aboutSections[1]?.image || ""}`}
+                                src={aboutSections[1]?.image || ""}
                                 alt={aboutSections[1]?.title || "Default Title"}
                                 className="w-6/8 md:w-3/5 lg:w-6/8 xl:w-6/8 pt-4 object-contain rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
                             />

@@ -6,7 +6,7 @@ export default function Card({ image, description, reverse, title }) {
     <div className="relative w-full h-full sm:h-full md:h-full p-2 border-4 border-gray-400 rounded-lg shadow-lg">
         <div className="relative w-full h-full rounded-lg overflow-hidden">
             <img
-                src={`https://psi-back.onrender.com${image}`}
+                src={image}
                 alt="Team member"
                 className="w-full h-full object-cover rounded-lg"
             />
