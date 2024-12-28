@@ -15,6 +15,11 @@
       "src": "logo.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "logo_larger.png",
+      "sizes": "1200x1200",
+      "type": "image/png"
     }
   ]
 }
