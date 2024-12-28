@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 const About = () => {
     const { data: aboutData } = useFetch('about');
     const aboutSections = aboutData?.about || [];
+    console.log(aboutData);
 
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -52,7 +53,6 @@ const About = () => {
                             ))}
                         </div>
                     </div>
-                    {/* Add Video Section */}
 
                     {/* Final Section */}
                     <div className="text-center mt-12">
