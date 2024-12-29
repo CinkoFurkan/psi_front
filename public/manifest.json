@@ -2,7 +2,7 @@
   "name": "PsiNous",
   "short_name": "PsiNous",
   "start_url": ".",
-  "id": "/",
+  "id": "https://www.psinous.org/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
@@ -20,19 +20,6 @@
     {
       "src": "logo_larger.png",
       "sizes": "1200x628",
-      "type": "image/png"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "screenshot-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "screenshot-vertical.png",
-      "sizes": "720x1280",
       "type": "image/png"
     }
   ],
