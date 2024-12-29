@@ -2,7 +2,6 @@
   "name": "PsiNous",
   "short_name": "PsiNous",
   "start_url": ".",
-  "id": "https://www.psinous.org/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
