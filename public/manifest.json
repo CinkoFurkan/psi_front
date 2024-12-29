@@ -1,6 +1,7 @@
 {
   "name": "PsiNous",
   "short_name": "PsiNous",
+  "id": "/",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
