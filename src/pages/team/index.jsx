@@ -2,17 +2,20 @@ import useFetch from "../../hooks/get";
 import SingleTeam from "./components/singleTeam";
 import {motion} from "framer-motion";
 import {useParams} from "react-router-dom";
+import Spinner from "../../components/spinner";
 
 const Team = () => {
     const {year} = useParams();
     const defaultYear = "2024-2025";
     const selectedYear = year ? year.substring(0, 4) : defaultYear.substring(0, 4);
 
-    const {data} = useFetch("member");
-    const {data: teamsData} = useFetch("team");
+    const {data, loading: dataLoading} = useFetch("member");
+    const {data: teamsData, loading: teamsDataLoading} = useFetch("team");
 
-    if (!data || !teamsData) {
-        return null;
+    if (dataLoading || teamsDataLoading) {
+        return (
+          <Spinner/>
+        );
     }
 
     const years = data.years?.filter((y) => y.year === selectedYear) || [];

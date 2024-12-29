@@ -1,27 +1,28 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
-import {setDecrementLoading, setIncrementLoading} from "../../store/loading/actions/actions";
 
 const useFetch = (url) => {
+
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
-            setIncrementLoading()
+            setLoading(true);
             try {
                 const {data} = await axios.get(`https://psi-back.onrender.com/psinous_app/api/${url}`);
                 setData(data);
             } catch (error) {
                 console.log(error.message);
             } finally {
-                setDecrementLoading()
+                setLoading(false)
             }
         };
 
         fetchData()
-    }, [url, setIncrementLoading, setDecrementLoading]);
+    }, [url]);
 
-    return {data};
+    return {data, loading};
 };
 
 export default useFetch;

@@ -43,7 +43,7 @@ const SingleTeam = ({ title, members }) => {
             variants={item}
             key={index}
             className="p-5 bg-[#f1f1e9] border border-gray-200 rounded-lg shadow-lg w-72 cursor-pointer"
-            onClick={() => handleMemberClick(member.member_id)} // Ensure member.id is not undefined
+            onClick={() => handleMemberClick(member.member_id)}
           >
             <div className="flex flex-col items-center">
               <Image member={member} />
