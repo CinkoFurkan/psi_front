@@ -31,7 +31,7 @@ const Info = ({ event }) => {
 
         {finishDateInfo ? (
           <p>
-            ⏰ {startDateInfo.time} - {finishDateInfo.time}
+            ⏰ {startDateInfo.time}
           </p>
         ) : (
           <p>⏰ {startDateInfo.time}</p>

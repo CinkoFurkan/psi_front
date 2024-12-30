@@ -28,7 +28,7 @@ const Events = () => {
             className="min-h-screen px-4 py-10 sm:px-8 lg:px-16"
         >
             <div
-                className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center"
+                className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 place-items-center"
             >
                 {sortedEvents.map((event, index) => {
                     const isEventPast = new Date(event.event_date) < currentDate;
