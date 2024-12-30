@@ -14,11 +14,11 @@ const Info = ({ event }) => {
 
   return (
     <div className="flex flex-col items-center justify-between h-full">
-      <h2 className="text-2xl font-semibold text-black text-center break-words">
+      <h2 className="text-xl font-semibold text-black text-center break-words">
         {event.title}
       </h2>
 
-      <div className="flex flex-col items-center space-y-1 text-sm text-gray-500 mt-4">
+      <div className="flex flex-col items-center space-y-1 text-xs text-gray-500 mt-4">
         <p>📍 {event.location}</p>
 
         {finishDateInfo ? (
