@@ -14,7 +14,7 @@ const Subscription = () => {
         user_mail: email,
       });
       setEmail("");
-      toast.success("Paramı geri istiyorum", {
+      toast.success("Abone Olundu", {
         duration: 3000,
       });
     } catch (error) {
