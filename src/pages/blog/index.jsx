@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import useFetch from "../../hooks/get";
 import Image from "./components/image";
 import Info from "./components/info";
@@ -5,7 +6,6 @@ import Extra from "./components/extra";
 import { motion } from "framer-motion";
 import { setBlogs } from "../../store/blog/actions/actions";
 import { useBlogs } from "../../store/hooks/hooks";
-import { useEffect } from "react";
 import Spinner from "../../components/spinner";
 
 const container = {
@@ -29,17 +29,27 @@ const item = {
 const Blog = () => {
     const blogs = useBlogs();
     const { data, loading } = useFetch(`blog`);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filteredBlogs, setFilteredBlogs] = useState([]);
 
     useEffect(() => {
         if (data) {
             setBlogs(data);
+            setFilteredBlogs(data.blogs || []); // Initialize filtered blogs
         }
     }, [data]);
 
+    useEffect(() => {
+        if (data && data.blogs) {
+            const filtered = data.blogs.filter((blog) =>
+                blog.title.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setFilteredBlogs(filtered);
+        }
+    }, [searchTerm, data]);
+
     if (loading) {
-        return (
-            <Spinner/>
-        );
+        return <Spinner />;
     }
 
     return data && data.blogs ? (
@@ -48,9 +58,16 @@ const Blog = () => {
             animate={{ opacity: 1 }}
             className="flex flex-col items-center w-full mt-16 min-h-screen px-4 sm:px-8 lg:px-16"
         >
-            <h1 className="mb-8 text-2xl font-bold text-gray-900 md:text-3xl lg:text-4xl">
-                Bloglar
-            </h1>
+            
+            <div className="mb-8 w-full max-w-2xl">
+                <input
+                    type="text"
+                    placeholder="Blog ismi ile aratın..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full p-3 text-sm border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+            </div>
 
             <motion.div
                 initial="hidden"
@@ -67,7 +84,7 @@ const Blog = () => {
                            place-items-center
                            mb-16"
             >
-                {data.blogs
+                {filteredBlogs
                     .slice()
                     .reverse()
                     .map((blog, index) => (
