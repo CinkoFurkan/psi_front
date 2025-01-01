@@ -29,46 +29,109 @@ const item = {
 const Blog = () => {
   const blogs = useBlogs();
   const { data, loading } = useFetch(`blog`);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [blogSearchTerm, setBlogSearchTerm] = useState("");
+  const [selectedWriter, setSelectedWriter] = useState("");
   const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [writers, setWriters] = useState([]);
 
   useEffect(() => {
-    if (data) {
+    if (data && data.blogs) {
       setBlogs(data);
-      setFilteredBlogs(data.blogs || []); // Initialize filtered blogs
+      setFilteredBlogs(data.blogs);
+
+      const uniqueWriters = Array.from(
+        new Set(data.blogs.map((blog) => `${blog.writer_f} ${blog.writer_l}`))
+      );
+
+      // Sort writers alphabetically
+      const sortedWriters = uniqueWriters.sort((a, b) => a.localeCompare(b));
+
+      setWriters(sortedWriters);
     }
   }, [data]);
 
   useEffect(() => {
     if (data && data.blogs) {
-      const filtered = data.blogs.filter((blog) =>
-        blog.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      const filtered = data.blogs.filter((blog) => {
+        const matchesBlogTitle = blog.title
+          .toLowerCase()
+          .includes(blogSearchTerm.toLowerCase());
+        const matchesWriter =
+          selectedWriter === "" ||
+          `${blog.writer_f} ${blog.writer_l}` === selectedWriter;
+        return matchesBlogTitle && matchesWriter;
+      });
       setFilteredBlogs(filtered);
     }
-  }, [searchTerm, data]);
+  }, [blogSearchTerm, selectedWriter, data]);
 
   if (loading) {
     return <Spinner />;
   }
 
-  return data && data.blogs ? (
+  if (!data || !data.blogs) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p className="text-xl font-semibold text-gray-700">
+          Veriler alınamadı.
+        </p>
+      </div>
+    );
+  }
+
+  return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="flex flex-col items-center w-full mt-16 min-h-screen px-4 sm:px-8 lg:px-16"
     >
-      <div className="mb-8 w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-xl">
-  <input
-    type="text"
-    placeholder="Blog ismi ile aratın..."
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    className="w-full p-3 text-sm border rounded-lg shadow-sm focus:ring-2 focus:ring-primary focus:outline-none"
-  />
-</div>
+      {/* Search Section */}
+      <div className="flex flex-col gap-4 mb-8 w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+        {/* Blog Search Bar */}
+        <input
+          type="text"
+          placeholder="Blog başlığı ile arayın..."
+          value={blogSearchTerm}
+          onChange={(e) => setBlogSearchTerm(e.target.value)}
+          className="w-full p-3 text-sm border rounded-lg shadow-md focus:ring-2 focus:ring-primary focus:outline-none"
+        />
 
+        {/* Writer Selection Dropdown */}
+        <div className="relative w-full">
+          <select
+            value={selectedWriter}
+            onChange={(e) => setSelectedWriter(e.target.value)}
+            className="w-full p-2 text-xs sm:text-sm border rounded-lg shadow-md focus:ring-2 focus:ring-primary focus:outline-none bg-white appearance-none pr-10"
+          >
+            <option value="">Tüm Yazarlar</option>
+            {writers.map((writer, index) => (
+              <option key={index} value={writer}>
+                {writer}
+              </option>
+            ))}
+          </select>
 
+          {/* Custom Dropdown Arrow */}
+          <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+            <svg
+              className="w-5 h-5 text-black"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      {/* Filtered Blogs */}
       <motion.div
         initial="hidden"
         animate="visible"
@@ -100,10 +163,6 @@ const Blog = () => {
           ))}
       </motion.div>
     </motion.div>
-  ) : (
-    <div className="flex justify-center items-center min-h-screen">
-      <p className="text-xl font-semibold text-gray-700">Veriler alınamadı.</p>
-    </div>
   );
 };
 
