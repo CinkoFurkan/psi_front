@@ -3,7 +3,7 @@ const Image = ({ event }) => {
     <img
       src={event.image}
       alt="Event"
-      className="object-cover w-full h-full"
+      className="object-cover w-full h-auto"
     />
   );
 };
