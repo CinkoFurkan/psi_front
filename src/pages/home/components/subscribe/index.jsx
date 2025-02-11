@@ -9,16 +9,22 @@ const Subscription = () => {
 
   const postEmail = async (e) => {
     e.preventDefault();
+    const trimmedEmail = email.trim();
+
+    if (!trimmedEmail) {
+      toast.error("Lütfen geçerli bir e-posta adresi girin.");
+      return;
+    }
+
     try {
       await postData({
-        user_mail: email,
+        user_mail: trimmedEmail,
       });
       setEmail("");
-      toast.success("Abone Olundu", {
-        duration: 3000,
-      });
+      toast.success("Abonelik başarılı!", { duration: 3000 });
     } catch (error) {
-      console.log(error.message);
+      toast.error("Bir hata oluştu. Lütfen tekrar deneyin.", { duration: 3000 });
+      console.error("Abonelik Hatası:", error);
     }
   };
 
@@ -39,7 +45,9 @@ const Subscription = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
           className="w-full max-w-xs sm:max-w-md lg:max-w-lg px-4 py-2 text-sm border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          placeholder="E-mail adresiniz"
+          placeholder="E-posta adresiniz"
+          onInvalid={(e) => e.target.setCustomValidity("Lütfen geçerli bir e-posta adresi girin.")}
+          onInput={(e) => e.target.setCustomValidity("")}
         />
 
         <Button
